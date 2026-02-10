@@ -1,0 +1,50 @@
+{
+  "$dollar_key": "dollar sign key",
+  "_underscore_key": "underscore key",
+  "empty_array": [],
+  "empty_object": {},
+  "enabled": true,
+  "key123": "alphanumeric key",
+  "metadata": null,
+  "mixed_array": [
+    {
+      "nested_in_array": "value",
+      "second_nested": "hello"
+    },
+    123,
+    3.14159,
+    "hello",
+    true,
+    false,
+    null,
+    {
+      "nested_in_array": "value"
+    },
+    [
+      1,
+      2,
+      3
+    ]
+  ],
+  "nested": {
+    "data": {
+      "deep_value": 42
+    },
+    "level": 2
+  },
+  "numbers": {
+    "explicit_plus": 100,
+    "float": 3.1,
+    "hex": 3.73593e+09,
+    "leading_dot": 0.5,
+    "negative": -50,
+    "positive": 100,
+    "scientific": 1.23e+10,
+    "zero": 0
+  },
+  "single_quoted": "single quoted value",
+  "title": "JSON5 Compliance Test",
+  "unicode_string": "Hello ABC World",
+  "unquotedKey": "unquoted value",
+  "version": 1.5
+}

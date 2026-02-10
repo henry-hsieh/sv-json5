@@ -1,0 +1,38 @@
+{
+  "title": "JSON Compliance Test",
+  "version": 1.5,
+  "enabled": true,
+  "metadata": null,
+  "nested": {
+    "level": 2,
+    "data": {
+      "deep_value": 42
+    }
+  },
+  "mixed_array": [
+    {
+      "nested_in_array": "value",
+      "second_nested": "hello"
+    },
+    123,
+    3.14159,
+    "hello",
+    true,
+    false,
+    null,
+    {
+      "nested_in_array": "value"
+    },
+    [1, 2, 3]
+  ],
+  "unicode_string": "Hello \u0041\u0042\u0043 World",
+  "empty_object": {},
+  "empty_array": [],
+  "numbers": {
+    "positive": 100,
+    "negative": -50,
+    "zero": 0,
+    "float": 2.71828,
+    "scientific": 1.23e10
+  }
+}

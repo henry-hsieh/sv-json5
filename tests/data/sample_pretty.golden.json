@@ -1,0 +1,42 @@
+{
+  "empty_array": [],
+  "empty_object": {},
+  "enabled": true,
+  "metadata": null,
+  "mixed_array": [
+    {
+      "nested_in_array": "value",
+      "second_nested": "hello"
+    },
+    123,
+    3.14159,
+    "hello",
+    true,
+    false,
+    null,
+    {
+      "nested_in_array": "value"
+    },
+    [
+      1,
+      2,
+      3
+    ]
+  ],
+  "nested": {
+    "data": {
+      "deep_value": 42
+    },
+    "level": 2
+  },
+  "numbers": {
+    "float": 2.71828,
+    "negative": -50,
+    "positive": 100,
+    "scientific": 1.23e+10,
+    "zero": 0
+  },
+  "title": "JSONComplianceTest",
+  "unicode_string": "HelloABCWorld",
+  "version": 1.5
+}

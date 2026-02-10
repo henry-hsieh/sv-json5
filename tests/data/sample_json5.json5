@@ -1,0 +1,56 @@
+{
+  // This is a single-line comment
+  title: "JSON5 Compliance Test",
+  /* This is a
+     multi-line comment */
+  version: 1.5,
+  enabled: true,
+  metadata: null,
+  /* Nested object with block comment
+     containing special chars: , [ ] { } */
+  nested: {
+    level: 2,
+    data: {
+      deep_value: 42
+    }
+  },
+  /* Array with trailing comma and
+     mixed types: */
+  mixed_array: [
+    {
+      nested_in_array: "value",
+      second_nested: "hello"
+    },
+    123,
+    3.14159,
+    "hello",
+    true,
+    false,
+    null,
+    {
+      nested_in_array: "value"
+    },
+    [1, 2, 3], /* Trailing comma in array */
+  ], /* Trailing comma after array */
+  unicode_string: "Hello \u0041\u0042\u0043 World",
+  empty_object: {},
+  empty_array: [],
+  /* Numbers section */
+  numbers: {
+    positive: 100,
+    negative: -50,
+    zero: 0,
+    float: 3.1,
+    scientific: 1.23e10,
+    hex: 0xDEADBEEF,
+    leading_dot: .5,
+    explicit_plus: +100,
+  },
+  /* Single quoted string */
+  single_quoted: 'single quoted value',
+  /* Unquoted keys */
+  unquotedKey: "unquoted value",
+  $dollar_key: "dollar sign key",
+  _underscore_key: "underscore key",
+  key123: "alphanumeric key",
+}
