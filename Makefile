@@ -16,10 +16,11 @@ COMMON_TESTS = test_smoke_common_result test_smoke_common_option
 SERDE_TESTS = test_smoke_serde
 JSON_TESTS = test_smoke_json_types test_smoke_json_deserialize test_smoke_json_serialize test_app_json_compliance test_app_json_value
 JSON5_TESTS = test_smoke_json5_deserialize test_app_json5_compliance
+MSGPACK_TESTS = test_smoke_msgpack_serialize test_smoke_msgpack_deserialize test_app_msgpack_compliance
 
 .PHONY: all clean help
 
-all: $(COMMON_TESTS) $(SERDE_TESTS) $(JSON_TESTS) $(JSON5_TESTS)
+all: $(COMMON_TESTS) $(SERDE_TESTS) $(JSON_TESTS) $(JSON5_TESTS) $(MSGPACK_TESTS)
 
 help:
 	@echo "Available tests:"
@@ -37,6 +38,10 @@ help:
 	@echo "  JSON5 tests:"
 	@echo "    make test_smoke_json5_deserialize - JSON5 extended features tests"
 	@echo "    make test_app_json5_compliance - JSON5 compliance integration test (includes streaming)"
+	@echo "  MessagePack tests:"
+	@echo "    make test_smoke_msgpack_serialize - MessagePack serialize smoke tests"
+	@echo "    make test_smoke_msgpack_deserialize - MessagePack deserialize smoke tests"
+	@echo "    make test_app_msgpack_compliance - MessagePack compliance integration test"
 	@echo "  make all                      - Run all tests sequentially"
 	@echo "  make clean                    - Remove build artifacts"
 
@@ -54,6 +59,10 @@ $(JSON_TESTS): | $(BUILD_DIR)
 
 $(JSON5_TESTS): | $(BUILD_DIR)
 	$(VERILATOR) $(V_FLAGS) -f $(SV_SERDE_ROOT)/src/json5/json5_pkg.f tests/$@.sv --top-module $@
+	$(OBJ_DIR)/V$@
+
+$(MSGPACK_TESTS): | $(BUILD_DIR)
+	$(VERILATOR) $(V_FLAGS) -f $(SV_SERDE_ROOT)/src/msgpack/msgpack_pkg.f tests/$@.sv --top-module $@
 	$(OBJ_DIR)/V$@
 
 $(BUILD_DIR):

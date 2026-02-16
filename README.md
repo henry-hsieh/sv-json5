@@ -63,6 +63,24 @@ Result#(json_value) res = serde_json5::from_str("{ key: 'value', // comments! \n
 res = serde_json5::from_file("data.json5");
 ```
 
+### Parsing MessagePack
+
+```systemverilog
+import common_pkg::*;
+import msgpack_pkg::*;
+
+// Parse from byte array
+byte_array_t data = '{8'h81, 8'ha3, 8'h6b, 8'h65, 8'h79, 8'ha5, 8'h76, 8'h61, 8'h6c, 8'h75, 8'h65};
+Result#(msgpack_value) res = serde_msgpack::from_array_to_value(data);
+if (res.is_ok()) begin
+    msgpack_value val = res.unwrap();
+    // use val...
+end
+
+// Parse from file
+res = serde_msgpack::from_file("data.msgpack");
+```
+
 ### Serializing to String
 
 ```systemverilog
@@ -92,6 +110,23 @@ if (fd != 0) begin
     // res = serde_json::to_writer_pretty_indent(fd, my_val, "    ");
     $fclose(fd);
 end
+```
+
+### Serializing MessagePack
+
+```systemverilog
+import common_pkg::*;
+import msgpack_pkg::*;
+
+// Serialize to byte array
+Result#(byte_array_t) bytes_res = serde_msgpack::to_array(my_val);
+if (bytes_res.is_ok()) begin
+    byte_array_t bytes = bytes_res.unwrap();
+    // use bytes...
+end
+
+// Serialize to file
+Result#(bit) res = serde_msgpack::to_file("output.msgpack", my_val);
 ```
 
 ### Serializing Custom Classes

@@ -15,5 +15,7 @@ package common_pkg;
   `include "io/file_reader.svh"
   `include "io/string_writer.svh"
   `include "io/file_writer.svh"
+  `include "io/queue_writer.svh"
+  `include "io/queue_reader.svh"
 endpackage
 `endif //COMMON_PKG_SV
